@@ -1,0 +1,233 @@
+/* Navbar.module.css */
+
+.navbar {
+  background-color: #002c5f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  z-index: 1;
+
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  /*gap: 0.55rem;*/
+}
+.logoImg {
+  height: 40px;
+  width: auto;
+  border-radius: 5px;
+}
+.menuicon {
+  display: none; /* Oculto por defecto */
+  font-size: 1.8rem;
+  color:gold;
+  cursor: pointer;
+}
+.centerTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: gold;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
+  flex-direction: column;
+  background-color: #00205b;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  max-height: 0; /* IMPORTANTE: para el colapso */
+  overflow: hidden; /* para que no se vea contenido al colapsar */
+}
+
+.menuOpen {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  max-height: 500px; /* O el máximo que necesites */
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.menu li a {
+  color:gold;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.icon {
+  color: gold;
+  font-size: 1.2rem;
+}
+
+/* Menú abierto */
+.menuOpen {
+  max-height: 500px;
+  animation: slideDownFade 0.4s forwards;
+}
+
+@media (min-width: 768px) and (max-width: 850px){
+  .navbar{
+    z-index: 20;
+}
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    position: static;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    overflow: visible;
+    flex-wrap: nowrap;
+    white-space: nowrap; /* 👈 evita que se salten a otra línea */
+  }
+    .centerTitle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .menuicon {
+    display: none;
+  }
+
+  .menu li {
+    gap: 0.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .logo {
+    order: 0;
+    margin-top: 0.5rem;
+  }
+
+  .centerTitle {
+    order: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: gold;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  .beerIcon {
+    font-size: 1.4rem;
+  }
+
+  .menuicon {
+    order: 2;
+    display: block;
+    position: static;
+    transform: none;
+    font-size: 1.8rem;
+   
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+  }
+
+  .menu {
+    order: 3;
+    width: 100%;
+  }
+
+  .menu li {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #004080;
+  }
+
+  .menu li a {
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+}
+/* Tablet: entre 769px y 1200px */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .centerTitle {
+    position: static;
+    transform: none;
+    margin: 0.5rem 0;
+  }
+
+  .menuicon {
+    display: block;
+    font-size: 1.8rem;
+    color: gold;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+  }
+
+  .menu {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #00205b;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
+  }
+
+  .menuOpen {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    max-height: 500px;
+  }
+
+  .menu li {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #004080;
+  }
+}
+
+
