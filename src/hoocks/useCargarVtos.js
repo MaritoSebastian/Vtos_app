@@ -25,9 +25,10 @@ const useCargarVtos = () => {
       }
       const result =await response.json();
       setSuccess(true);
-      return result;
+      return { ok:true, data:result};
     } catch (err) {
       setError(err.message);
+      return { ok: false, error: err.message }; 
     } finally {
       setLoading(false);
     }

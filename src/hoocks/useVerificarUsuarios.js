@@ -1,4 +1,4 @@
-import React from 'react'
+
 const ENDPOINT_VERIFICAR = "http://localhost:3001/api/verificar-usuario";
 
 const useVerificarUsuarios = () => {

@@ -1,0 +1,82 @@
+.formulrioWp {
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: gold;
+  font-family: sans-serif;
+}
+h3 {
+  background-color: #002c5f;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  display: flex;
+  ;
+  
+}
+
+input[type="tel"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  color: gold;
+  background-color: #002c5f;
+}
+
+.boton {
+  background-color: #002c5f;
+  color: gold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+}
+
+.icon {
+  font-size: 1.2rem;
+  color: gold;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.item {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  color: #002c5f;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.mensajeVacio {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #777;
+}
+.rojo {
+  background-color: #ff4d4d;
+  color: #002c5f;
+}
+
+.naranja {
+  background-color: #ffa500;
+  color: #002c5f;
+}
+
+.verde {
+  background-color: #28a745;
+  color: #002c5f;
+}

@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 const vtoSchema = Yup.object({
-  codigo_Barras: Yup.string()
+  codigo_barras: Yup.string()
     .required("El código de barras es obligatorio")
     .min(3, "El código es muy corto"),
   producto: Yup.string()

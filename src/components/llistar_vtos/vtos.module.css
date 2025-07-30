@@ -1,0 +1,198 @@
+.contenedorTabla {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.search {
+  display: flex;
+  align-items: center;
+  background-color: transparent; /* sin fondo visible */
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+
+  height: auto;
+}
+
+/* Input del buscador */
+.buscador {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  font-size: 1rem;
+  outline: none;
+  color: #002c5f;
+  background-color: #fff;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Botón de búsqueda con lupa */
+.ButtonSearch {
+  background-color: #002c5f;
+  color: gold;
+  border: none;
+  padding: 0 16px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: background-color 0.3s;
+}
+
+.ButtonSearch:hover {
+  background-color: #001c40;
+}
+
+
+.titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 24px;
+  margin-bottom: 1rem;
+  color: gold;
+  background: #002c5f;
+}
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.tabla th,
+.tabla td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.tabla th {
+  background-color: #002c5f; /* verde tipo Spotify */
+  color: gold;
+  text-transform: uppercase;
+}
+
+/*.tabla tr:nth-child(even) {
+  background-color: #f9f9f9;
+}*/
+
+.tabla tr:hover {
+  background-color: #e6f7ff;
+}
+
+.rojo {
+  background-color: #ff4d4d; /* rojo fuerte */
+  color: #002c5f;
+}
+
+.naranja {
+  background-color: #ffa500; /* naranja puro */
+  color: #002c5f;
+}
+
+.verde {
+  background-color: #28a745; /* verde intenso */
+  color: #002c5f;
+}
+
+.normal {
+  background-color: #e0e0e0; /* gris claro para neutral */
+  color: gold;
+}
+.rojo,
+.naranja,
+.verde {
+  font-weight: bold;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.acciones {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.botonIcono {
+  background-color: #0033A0; /* Azul Quilmes */
+  border: none;
+  border-radius: 5px;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.botonIcono:hover {
+  transform: scale(1.1);
+}
+
+.botonIcono svg {
+  color: #FFD700; /* Gold */
+}
+
+@media (max-width: 768px) {
+  .tabla,
+  .tabla thead,
+  .tabla tbody,
+  .tabla th,
+  .tabla td,
+  .tabla tr {
+    display: block;
+  }
+
+  .tabla thead {
+    display: none; /* ocultamos los encabezados en mobile */
+  }
+
+  .tabla tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+  }
+
+  .tabla td {
+    text-align: left;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .tabla td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    font-weight: bold;
+    color: #002c5f;
+  }
+}
+/* Responsive para mobile */
+@media (max-width: 480px) {
+  .search {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .buscador {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .ButtonSearch {
+    width: 100%;
+    border-radius: 8px;
+  }
+}

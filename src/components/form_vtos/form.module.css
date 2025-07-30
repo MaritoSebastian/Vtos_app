@@ -9,6 +9,11 @@
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
+.beerIcon{
+  color: gold;
+}
+
+
 
 .form_header h2 {
   color: gold;
@@ -93,6 +98,7 @@ button {
   border-radius: 6px;
   cursor: pointer;
   font-size: 1.1rem;
+  font-weight: bolder;
   transition: background-color 0.3s ease;
 }
 
@@ -123,5 +129,119 @@ button:disabled {
 
   button {
     font-size: 1rem;
+   
   }
 }
+@media (min-width: 1024px) {
+  .formulario {
+    flex-direction: row; /* horizontal */
+    flex-wrap: wrap;     /* para que los campos puedan bajar a la siguiente fila si no caben */
+    max-width: 700px;    /* más ancho para aprovechar el espacio */
+  }
+  
+  .form_group {
+    flex: 1 1 45%; /* que cada grupo ocupe casi la mitad del ancho */
+    min-width: 300px; /* para evitar que quede muy estrecho */
+  }
+}
+@media (min-width:768px) {
+  .form_header{
+    width: 100%;
+
+  }
+
+  
+}
+
+/* Contenedor del escáner con fondo semitransparente */
+.scannerOverlay {
+  position: fixed;
+  top: 100px; /* un poco debajo del header o donde quieras */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px; /* algo parecido al ancho del scanner */
+  height: 180px; /* aproximadamente el doble del alto de un input */
+  background-color: rgba(0, 0, 0, 0.3); /* fondo semitransparente oscuro */
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+/* Contenedor que agrupa botón y escáner */
+.scannerContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap; /* para que en mobile no se desborde */
+
+}
+
+
+/* Contenedor interno para el scanner con fondo blanco y bordes redondeados */
+.scannerInlineContainer {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 44, 95, 0.05);
+  border: 1.5px solid #002c5f;
+  border-radius: 6px;
+  height: 44px;
+  padding: 0 0.5rem;
+  margin-bottom: 1rem;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.scannerToggleBtn {
+  background-color: #002c5f;
+  color: gold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+  min-width: 140px;
+}
+
+.scannerToggleBtn:hover {
+  background-color: #001e3f;
+}
+
+.scannerCloseBtn {
+  background: transparent;
+  border: none;
+  color: #002c5f;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 8px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+/* Para que el input código de barras ocupe toda la fila en desktop */
+@media (min-width: 1024px) {
+  .codigo_barras {
+    flex-basis: 100% ;/* ocupa toda la fila */
+    max-width: 100% 
+  }
+}
+/* Oculta el escáner en pantallas grandes (desktop) */
+@media (min-width: 1024px) {
+  .scannerContainer{
+    display: none;
+  }
+}
+/* Hace que el botón del escáner ocupe todo el ancho en mobile */
+@media (max-width: 1023px) {
+  .scannerToggleBtn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+

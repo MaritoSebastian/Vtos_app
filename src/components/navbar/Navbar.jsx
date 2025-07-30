@@ -7,8 +7,10 @@ import {
   FaUserAlt,
   FaPlusSquare,
   FaListAlt,
+  FaWhatsapp
 } from "react-icons/fa";
 import styles from "./Navbar.module.css";
+import { Link } from "react-router-dom"; // <-- solo necesitas importar Link
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,19 +38,23 @@ const Navbar = () => {
       <ul className={`${styles.menu} ${menuOpen ? styles.menuOpen : ""}`}>
         <li onClick={toggleMenu}>
           <FaHome className={styles.icon} />
-          <a href="/">Inicio</a>
+          <Link to="/">Inicio</Link>
         </li>
         <li onClick={toggleMenu}>
           <FaUserAlt className={styles.icon} />
-          <a href="/nosotros">Instrucciones</a>
+          <Link to="/nosotros">Instrucciones</Link>
         </li>
         <li onClick={toggleMenu}>
           <FaPlusSquare className={styles.icon} />
-          <a href="/Vtos">Cargar vtos </a>
+          <Link to="/Vtos">Cargar vtos</Link>
         </li>
         <li onClick={toggleMenu}>
           <FaListAlt className={styles.icon} />
-          <a href="/listar">Listar vtos </a>
+          <Link to="/listaVtos">Listar vtos</Link>
+        </li>
+        <li onClick={toggleMenu}>
+          <FaWhatsapp className={styles.icon} />
+          <Link to="/watsapp">Enviar vtos</Link>
         </li>
       </ul>
     </nav>

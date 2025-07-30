@@ -1,0 +1,24 @@
+.enviar-wp{
+min-height: 100dvh; /* usa todo el viewport real, incluso en mobile moderno */
+  overflow-y: auto;
+  position: relative;
+  background-image: url("/img/fondo.stella.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: start; /* empezar arriba */
+  justify-content: center;
+  padding-top: 80px;  /* espacio para el nav si es fijo */
+  padding-bottom: 100px; 
+
+}
+.contenido {
+  width: 100%;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.8); /* opcional, para que se lea mejor */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  text-align: center ;
+
+}

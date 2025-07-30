@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
@@ -11,17 +12,17 @@ import { guardarUsuario } from "../../utils/authStorage";
 import { useUsuario } from "../../context/UsuarioContext";
 import { Navigate } from "react-router-dom";
 
-
-
 const Login = ({ onLoginSuccess }) => {
   const { verificar } = useVerificarUsuarios();
   const [loading, setLoading] = useState(false);
   const { login } = useUsuario();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
       clave: "",
+      // telefono eliminado
     },
     validationSchema: LoginSchema,
     onSubmit: async (values, { resetForm }) => {
@@ -30,31 +31,39 @@ const Login = ({ onLoginSuccess }) => {
         const datos = {
           email: values.email,
           clave: values.clave,
+          
         };
-        console.log("datos a envias ", datos);
+        console.log("datos a enviar ", datos);
         const result = await verificar(datos.email, datos.clave);
-        console.log("resultado de la  api", result);
+        console.log("resultado de la api", result);
         if (result && result.habilitado) {
-          console.log("ingreso exitoso");
-          guardarUsuario(result);
-        login(result);
+          const datosCompletos = {
+            email: result.email,
+            rol: result.rol,
+            telefono: result.telefono, // lo recibís del backend
+          };
+
+          console.log("ingreso exitoso", datosCompletos);
+          console.log("Guardando en localStorage:", datosCompletos);
+
+          guardarUsuario(datosCompletos);
+          login(datosCompletos);
 
           await Swal.fire({
-            title: "ingreso exitoso",
-            text: "bienvenido a Vtos_app",
+            title: "Ingreso exitoso",
+            text: "Bienvenido a Vtos_app",
             icon: "success",
-            confirmButtonText: "ok",
+            confirmButtonText: "OK",
           });
           resetForm();
           if (onLoginSuccess) onLoginSuccess();
-          navigate("/",{replace:true})
-          
+          navigate("/", { replace: true });
         } else {
           await Swal.fire({
             title: "Error",
-            text: "eror en la clave o el email",
+            text: "Error en la clave o el email",
             icon: "error",
-            confirmButtonText: "intentar de nuevo",
+            confirmButtonText: "Intentar de nuevo",
           });
         }
       } catch (error) {
@@ -82,9 +91,7 @@ const Login = ({ onLoginSuccess }) => {
           type="email"
           name="email"
           className={
-            formik.errors.email && formik.touched.email
-              ? styles.input_error
-              : ""
+            formik.errors.email && formik.touched.email ? styles.input_error : ""
           }
           value={formik.values.email}
           onChange={formik.handleChange}
@@ -94,6 +101,9 @@ const Login = ({ onLoginSuccess }) => {
           <div className={styles.error}>{formik.errors.email}</div>
         )}
       </div>
+
+      {/* Campo teléfono eliminado */}
+
       <div className={styles.form_group}>
         <label htmlFor="clave">Clave</label>
         <input
@@ -101,9 +111,7 @@ const Login = ({ onLoginSuccess }) => {
           type="password"
           name="clave"
           className={
-            formik.errors.clave && formik.touched.clave
-              ? styles.input_error
-              : ""
+            formik.errors.clave && formik.touched.clave ? styles.input_error : ""
           }
           value={formik.values.clave}
           onChange={formik.handleChange}
@@ -115,12 +123,12 @@ const Login = ({ onLoginSuccess }) => {
       </div>
 
       <button type="submit" className={styles.submit_btn} disabled={loading}>
-        {loading ? <ClipLoader color="#ffffff" size={20} /> : "ingresar"}
+        {loading ? <ClipLoader color="#ffffff" size={20} /> : "Ingresar"}
       </button>
       <p className={styles.register_prompt}>
         ¿No estás registrado?{" "}
         <a href="/Register" className={styles.register_link}>
-          Registrate acá
+          Regístrate acá
         </a>
       </p>
     </form>
@@ -128,3 +136,4 @@ const Login = ({ onLoginSuccess }) => {
 };
 
 export default Login;
+

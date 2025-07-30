@@ -1,6 +1,5 @@
 import * as yup from "yup";
 
-
 export const LoginSchema = yup.object().shape({
   email: yup
     .string()
@@ -12,6 +11,7 @@ export const LoginSchema = yup.object().shape({
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
       "El email debe tener un formato válido (por ejemplo: usuario@dominio.com)"
     ),
+
   clave: yup
     .string()
     .required("La clave es obligatoria")

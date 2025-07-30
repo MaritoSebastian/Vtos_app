@@ -1,0 +1,57 @@
+
+/*.vtos-container {
+  position: relative;
+  height:100vh;
+  overflow: hidden;
+  background-image: url("/img/fondo.stella.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color:gold;
+  text-align: center;
+  padding: 2rem;
+  text-align: center;
+  padding: 2rem;
+
+}*/
+/*.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start; /* Para que el form comience desde arriba */
+  /*padding: 2rem;
+  color: gold;
+}*/
+.vtos-container {
+  min-height: 100dvh; /* usa todo el viewport real, incluso en mobile moderno */
+  overflow-y: auto;
+  position: relative;
+  background-image: url("/img/fondo.stella.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: start; /* empezar arriba */
+  justify-content: center;
+  padding-top: 80px;  /* espacio para el nav si es fijo */
+  padding-bottom: 100px; /* espacio para el footer si es fijo */
+}
+
+
+

@@ -16,14 +16,17 @@ import Home from "./page/home/Home";
 import Overlay from "./components/overlay/Overlay";
 import Background from "./components/background/Background";
 import Vtos from "./page/Vtos/Vtos";
+import Listavtos from "./page/listaVtos/Listavtos";
+import WpPage from "./page/watsapp/WpPage";
 
 
 
 function App() {
- const { usuario, login, /*logout*/ } = useUsuario();
+ const { usuario, login,logout,isLoading } = useUsuario();
  
   const isLoggedin = usuario !== null;
   const location=useLocation();
+  if (isLoading) return <div>cargando...</div>
 
   return (
      
@@ -42,7 +45,7 @@ function App() {
           <Routes>
             <Route
               path="/Login"
-              element={ <Login onLoginSuccess={login}/>
+              element={ <Login/>
               
               }
             />
@@ -58,6 +61,11 @@ function App() {
               element={isLoggedin ? <Home /> : <Navigate to="/Login" replace />}
             />
             <Route path="/Vtos" element={isLoggedin ? <Vtos/> : <Navigate to="/Login" replace />}/>
+            <Route path="/listavtos" element={<Listavtos/>}/>
+            <Route path="/watsapp" element={<WpPage/>}>
+              
+            </Route>
+          
             
           </Routes>
         </main>

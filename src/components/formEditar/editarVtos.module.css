@@ -1,0 +1,54 @@
+/* editarVtos.modules.css */
+
+/* Celdas básicas */
+td {
+  padding: 8px 12px;
+  vertical-align: middle;
+}
+
+/* Inputs para texto y fecha */
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+/* Botón guardar con ícono */
+/* Botón guardar con fondo azul Quilmes y ícono dorado */
+button {
+  background-color: #0047AB; /* Azul Quilmes */
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  color: #FFD700; /* Dorado para el ícono y texto */
+  font-size: 1.3rem;
+}
+
+button:hover {
+  background-color: #00337a; /* Azul más oscuro para hover */
+}
+
+
+
+
+/* Responsive para móvil */
+@media (max-width: 600px) {
+  input[type="text"],
+  input[type="date"] {
+    font-size: 1.1rem;
+  }
+
+  button {
+    font-size: 1.6rem;
+  }
+}

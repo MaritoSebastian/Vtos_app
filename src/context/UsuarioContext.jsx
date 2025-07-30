@@ -60,12 +60,17 @@ const UsuarioContext = createContext();
 
 export const UsuarioProvider = ({ children }) => {
   const [usuario, setUsuario] = useState(null);
+  const [isLoading,setIsLoading]=useState(true)
 
   useEffect(() => {
     const usuarioGuardado = obtenerUsuario();
+      console.log("📦 Usuario en localStorage al iniciar app:", localStorage.getItem("usuario"));
+  console.log("🧾 Usuario parseado en Provider:", usuarioGuardado);
+   
     if (usuarioGuardado) {
       setUsuario(usuarioGuardado);
     }
+    setIsLoading(false)
   }, []);
 
   const login = (usuarioData) => {
@@ -79,7 +84,7 @@ export const UsuarioProvider = ({ children }) => {
   };
 
   return (
-    <UsuarioContext.Provider value={{ usuario, login, logout }}>
+    <UsuarioContext.Provider value={{ usuario, login, logout,isLoading }}>
       {children}
     </UsuarioContext.Provider>
   );
