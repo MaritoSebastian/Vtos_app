@@ -42,7 +42,7 @@ const Navbar = () => {
         </li>
         <li onClick={toggleMenu}>
           <FaUserAlt className={styles.icon} />
-          <Link to="/nosotros">Instrucciones</Link>
+          <Link to="/Instrucciones">Instrucciones</Link>
         </li>
         <li onClick={toggleMenu}>
           <FaPlusSquare className={styles.icon} />

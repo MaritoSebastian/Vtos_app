@@ -97,10 +97,5 @@
   }
 }
 
-@media (max-width: 400px) {
-  .socialLink,
-  .divLogos {
-    width: 100%;
-  }
-} 
+
 
