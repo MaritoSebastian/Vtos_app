@@ -62,14 +62,13 @@ Este proyecto también fue una excelente oportunidad para aplicar tecnologías m
 <table>
 <tr>
 <td><img src="./sreenshotsGit/vista.png" width="100%">   </td>
-<td><img src="./sreenshotsGit/inicio.png" width="100%"></td>
+<td><img src="./sreenshotsGit/FormCarga.png"" width="100%"></td>
 <td><img src="./sreenshotsGit/instructivo.png" width="100%"></td>
 </tr> 
 <tr>
-<td><img src="./sreenshotsGit/FormCarga.png" width="100%">   </td>
+<td><img src="./sreenshotsGit/inicio.png" width="100%">   </td>
 <td><img src="./sreenshotsGit/listaVtos.png" width="100%"></td>
 <td><img src="./sreenshotsGit/listaWp.png" width="100%"></td>
 
 </tr>
-
 </table>
