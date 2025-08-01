@@ -1,12 +1,75 @@
-# React + Vite
+# VTOS_APP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación desarrollada para gestionar productos, fechas de vencimiento, y enviar notificaciones por WhatsApp de forma sencilla y efectiva.
 
-Currently, two official plugins are available:
+## 🎯 Propósito del proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+VTOS_APP nació como una solución práctica para llevar el control de productos con fecha de vencimiento, especialmente útil en entornos como almacenes, comercios o depósitos.
 
-## Expanding the ESLint configuration
+El objetivo principal es **evitar pérdidas económicas por vencimientos** mediante un sistema simple, visual y accesible desde cualquier dispositivo. Además, la opción de enviar notificaciones por WhatsApp lo convierte en una herramienta útil y adaptable a distintos usuarios.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Este proyecto también fue una excelente oportunidad para aplicar tecnologías modernas de frontend y backend sin servidores tradicionales.
+
+## 🚀 Tecnologías utilizadas
+
+### Frontend:
+
+- React
+- Vite
+- CSS Modules
+- SweetAlert2
+- LocalStorage para almacenamiento temporal
+- Librerías de íconos (FontAwesome, etc.)
+
+### Backend:
+
+- Google Sheets como base de datos
+- Apps Script (para exponer la base como API REST)
+
+### Extras:
+
+- Escáner de código de barras (experimental, requiere acceso a cámara en dispositivos móviles)
+- Envío de mensajes vía WhatsApp Web
+
+## 🧑‍💻 Roles de usuario
+
+- **Administrador:** Puede ver todos los vencimientos, agregar, editar y eliminar.
+- **Usuario:** Solo ve y gestiona los vencimientos que cargó personalmente.
+
+## ⚙️ Funcionalidades
+
+- Escaneo de productos con código de barras (mobile)
+- Filtrado por fecha de vencimiento
+- Colores según urgencia (verde, amarillo, rojo)
+- Ordenamiento automático
+- Envío de resumen por WhatsApp
+- Soporte multiusuario con perfiles diferenciados
+
+## 📦 Cómo correr el proyecto
+
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/tuUsuario/tuRepositorio.git
+   ```
+2. Instalar dependencias y correr el servidor:
+   ```bash
+   cd tuRepositorio
+   npm install
+   npm run dev
+   ```
+## 📱 Vistas en dispositivos móviles
+
+<table>
+<tr>
+<td><img src="./sreenshotsGit/vista.png" width="100%">   </td>
+<td><img src="./sreenshotsGit/inicio.png" width="100%"></td>
+<td><img src="./sreenshotsGit/instructivo.png" width="100%"></td>
+</tr> 
+<tr>
+<td><img src="./sreenshotsGit/FormCarga.png" width="100%">   </td>
+<td><img src="./sreenshotsGit/listaVtos.png" width="100%"></td>
+<td><img src="./sreenshotsGit/listaWp.png" width="100%"></td>
+
+</tr>
+
+</table>
