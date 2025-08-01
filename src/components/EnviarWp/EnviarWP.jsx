@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import styles from "./enviarWp.module.css";
 import calcularDifDeDias from "../../utils/calcularDifDeDias";
+import parseFecha from "../../utils/parseFecha";
 import { FaWhatsapp } from "react-icons/fa";
 import { useVtosContext } from "../../context/VtosContext";
 import { obtenerUsuario } from "../../utils/authStorage";
@@ -10,6 +11,7 @@ import obtenerColorPorDias from "../../utils/obtenerColorPorDias";
 const EnviarWP = () => {
   const { vtos, obtenerVtos } = useVtosContext();
   const [telefonoDestino, setTelefonoDestino] = useState("");
+
   useEffect(() => {
     const usuario = obtenerUsuario();
     if (usuario) {
@@ -18,14 +20,16 @@ const EnviarWP = () => {
   }, []);
 
   const vtosParaEnviar = vtos.filter((item) => {
-    const dias = calcularDifDeDias(item.fecha_vto);
+    const fecha =parseFecha(item.fecha_vto);
+    const dias = calcularDifDeDias(fecha)
     return dias != null && dias <= 60 && dias >= 0;
   });
 
   const MenWp = () => {
     let mensaje = "Lista de productos próximos a vencer:\n";
     vtosParaEnviar.forEach((item) => {
-      const dias = calcularDifDeDias(item.fecha_vto);
+      const fecha=parseFecha(item.fecha_vto)
+      const dias = calcularDifDeDias(fecha);
       
       mensaje += `-${item.codigo_Barras} ${item.producto} (vence en ${dias} días, fecha ${new Date(
         item.fecha_vto
@@ -73,14 +77,15 @@ const EnviarWP = () => {
       {vtosParaEnviar.length > 0 ? (
         <ul className={styles.lista}>
           {vtosParaEnviar.map((item, index) => {
-            const dias=calcularDifDeDias(new Date(item.fecha_vto));
+            const fecha=parseFecha(item.fecha_vto)
+            const dias=calcularDifDeDias(fecha);
             const color= obtenerColorPorDias(dias);
 
              return(
             <li key={index} className={`${styles.item} ${styles[color]}`}>
-              <strong>{item.producto}</strong>- vence en {""}
-              {calcularDifDeDias(item.fecha_vto)} dias (
-              {new Date(item.fecha_vto).toLocaleDateString()})
+              <strong>{item.producto}</strong>- vence en {dias}
+               dias (
+              {fecha ? fecha.toLocaleDateString():"Fecha invalida"} )
             </li>)
           })}
         </ul>

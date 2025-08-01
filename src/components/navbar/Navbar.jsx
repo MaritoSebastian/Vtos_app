@@ -9,7 +9,7 @@ import {
   FaListAlt,
   FaWhatsapp
 } from "react-icons/fa";
-import styles from "./Navbar.module.css";
+import styles from "./navbar.module.css";
 import { Link } from "react-router-dom"; // <-- solo necesitas importar Link
 
 const Navbar = () => {
