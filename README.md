@@ -49,11 +49,11 @@ Este proyecto también fue una excelente oportunidad para aplicar tecnologías m
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/tuUsuario/tuRepositorio.git
+   git clone https://github.com/MaritoSebastian/Vtos_app.git
    ```
 2. Instalar dependencias y correr el servidor:
    ```bash
-   cd tuRepositorio
+   cd Vtos_app
    npm install
    npm run dev
    ```
