@@ -1,6 +1,7 @@
+const URL_BASE=import.meta.env.VITE_DOMINO_RAILWAY
 const eliminarVtos = async (codigo_barras) => {
   try {
-    const response = await fetch("http://localhost:3001/api/eliminar", {
+    const response = await fetch( `${URL_BASE}/api/eliminar` /*"http://localhost:3001/api/eliminar"*/, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

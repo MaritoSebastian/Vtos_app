@@ -1,5 +1,6 @@
 import { useState } from "react";
-const ENDPOINT_VTOS = "http://localhost:3001/api/enviar";
+//const ENDPOINT_VTOS = "http://localhost:3001/api/enviar";
+ const URL_BASE=import.meta.env.VITE_DOMINO_RAILWAY
 
 const useCargarVtos = () => {
   const [loading, setLoading] = useState(false);
@@ -10,7 +11,7 @@ const useCargarVtos = () => {
     setError(null);
     setSuccess(false);
     try {
-      const response = await fetch(ENDPOINT_VTOS, {
+      const response = await fetch(`${URL_BASE}/api/enviar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

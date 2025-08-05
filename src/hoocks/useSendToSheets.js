@@ -26,12 +26,13 @@ const useSendToSheets = () => {
 export default useSendToSheets;*/
 
 
-const ENDPOIND = "http://localhost:3001/api/enviar";
+//const ENDPOIND = "http://localhost:3001/api/enviar";
+ const URL_BASE=import.meta.env.VITE_DOMINO_RAILWAY
 
 const useSendToSheets = () => {
   const enviarDatos = async (datos, destino) => {
     try {
-      const response = await fetch(ENDPOIND, {
+      const response = await fetch(`${URL_BASE}/api/enviar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

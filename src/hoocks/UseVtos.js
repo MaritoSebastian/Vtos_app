@@ -2,9 +2,9 @@ import { useState } from "react";
 import eliminarVtos from "../utils/eliminarVtos";
 import editarVtos from "../utils/editarVtos";
 
-const ENDPOINT_VTOS = "http://localhost:3001/api/enviar";
-const ENDPOINT_EDITAR = "http://localhost:3001/api/editar";
-
+//const ENDPOINT_VTOS = "http://localhost:3001/api/enviar";
+//const ENDPOINT_EDITAR = "http://localhost:3001/api/editar";
+const URL_BASE=import.meta.env.VITE_DOMINO_RAILWAY
 const UseVtos = () => {
   const [vtos, setVtos] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,9 @@ const UseVtos = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(ENDPOINT_VTOS, {
+      
+      console.log(URL_BASE,"base url")
+      const response = await fetch(`${URL_BASE}/api/enviar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ telefono, rol, destino: "listar" }),
@@ -24,6 +26,7 @@ const UseVtos = () => {
       setVtos(data.result.vtos || []);
     } catch (err) {
       setError("no se pudieron listar los vtos");
+      console.log(err)
     } finally {
       setLoading(false);
     }
@@ -43,7 +46,7 @@ const UseVtos = () => {
   //fincion para hacer la llamada al back
   const actualizarVtosEnBackend = async (vtosActualizado) => {
     try {
-      const response = await fetch(ENDPOINT_EDITAR, {
+      const response = await fetch(`${URL_BASE}/api/editar`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(vtosActualizado),
