@@ -2,9 +2,7 @@ import { useState } from "react";
 import eliminarVtos from "../utils/eliminarVtos";
 import editarVtos from "../utils/editarVtos";
 
-//const ENDPOINT_VTOS = "http://localhost:3001/api/enviar";
-//const ENDPOINT_EDITAR = "http://localhost:3001/api/editar";
-const URL_BASE=import.meta.env.VITE_DOMINO_RAILWAY
+const URL_BASE = import.meta.env.VITE_DOMINO_RAILWAY;
 const UseVtos = () => {
   const [vtos, setVtos] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -14,8 +12,7 @@ const UseVtos = () => {
     setLoading(true);
     setError(null);
     try {
-      
-      console.log(URL_BASE,"base url")
+      console.log(URL_BASE, "base url");
       const response = await fetch(`${URL_BASE}/api/enviar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -26,7 +23,7 @@ const UseVtos = () => {
       setVtos(data.result.vtos || []);
     } catch (err) {
       setError("no se pudieron listar los vtos");
-      console.log(err)
+      console.log(err);
     } finally {
       setLoading(false);
     }
@@ -52,7 +49,7 @@ const UseVtos = () => {
         body: JSON.stringify(vtosActualizado),
       });
       const data = await response.json();
-       console.log("✅ Respuesta backend en fetch:", data);
+      console.log("✅ Respuesta backend en fetch:", data);
       return data;
     } catch (error) {
       console.error("❌ Error en fetch PUT backend:", error);
@@ -65,18 +62,16 @@ const UseVtos = () => {
     if (res.success) {
       setVtos((prev) =>
         prev.map((item) =>
-          String(
-            item.codigo_Barras )=== String(vtosActualizado.codigo_Barras)
-              ? { ...item, ...vtosActualizado }
-              : item
-          
+          String(item.codigo_Barras) === String(vtosActualizado.codigo_Barras)
+            ? { ...item, ...vtosActualizado }
+            : item
         )
       );
     }
     return res;
   };
 
-  return { vtos, loading, error, obtenerVtos, eliminarYactualizarVtos,editar };
+  return { vtos, loading, error, obtenerVtos, eliminarYactualizarVtos, editar };
 };
 
 export default UseVtos;
