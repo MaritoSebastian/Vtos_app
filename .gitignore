@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+#variable dpnde se guarda la url del Railway
+.env
