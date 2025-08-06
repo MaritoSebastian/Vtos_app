@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { SHEET_ID, API_KEY } from "../config";
+import { SHEET_ID, API_KEY,BASE_URL } from "../config";
 import Swal from "sweetalert2";
 
-const BASE_URL = "https://sheets.googleapis.com/v4/spreadsheets";
+//const BASE_URL = "https://sheets.googleapis.com/v4/spreadsheets";
 
 const useSheetData = (range) => {
   const [data, setData] = useState([]);
