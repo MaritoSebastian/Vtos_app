@@ -8,11 +8,11 @@ const UseVtos = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const obtenerVtos = async ({ telefono, rol }) => {
-    console.log("Llamando a obtenerVtos con:", telefono, rol);
+
     setLoading(true);
     setError(null);
     try {
-      console.log(URL_BASE, "base url");
+    
       const response = await fetch(`${URL_BASE}/api/enviar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -40,7 +40,7 @@ const UseVtos = () => {
     }
     return res;
   };
-  //fincion para hacer la llamada al back
+  //funcion para hacer la llamada al back
   const actualizarVtosEnBackend = async (vtosActualizado) => {
     try {
       const response = await fetch(`${URL_BASE}/api/editar`, {

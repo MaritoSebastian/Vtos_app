@@ -143,6 +143,7 @@ const ListarVtos = () => {
             vtosFiltrados.map((item) => {
               const dias = calcularDifDeDias(new Date(item.fecha_vto));
               const color = obtenerColorPorDias(dias);
+               console.log("Producto:", item.producto, "Días:", dias, "Color:", color);
               if (
                 editandoItem &&
                 editandoItem.codigo_Barras === item.codigo_Barras

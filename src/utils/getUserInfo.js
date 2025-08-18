@@ -8,7 +8,7 @@ const getUserInfo = () => {
   }
   const { telefono, rol } = usuario;
   const datos = { telefono: String(telefono), rol };
-  console.log("✅ getUserInfo:", datos); // 🔍 Este log te va a mostrar qué se usa
+
   return datos;
 };
 

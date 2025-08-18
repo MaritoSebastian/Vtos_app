@@ -28,7 +28,7 @@ const Navbar = () => {
       </div>
       <div className={styles.centerTitle}>
         <FaBeer className={styles.beerIcon} />
-        <h1> App VTOs</h1>
+        <h1> App Vtos</h1>
         <FaBeer className={styles.beerIcon} />
       </div>
       <div className={styles.menuicon} onClick={toggleMenu}>

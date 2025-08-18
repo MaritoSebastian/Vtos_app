@@ -178,6 +178,11 @@
     font-weight: bold;
     color: #002c5f;
   }
+  .botonIcono {
+    width: 100%;            /* ocupa todo el ancho del td */
+    justify-content: center; 
+  }
+
 }
 /* Responsive para mobile */
 @media (max-width: 480px) {
@@ -194,5 +199,9 @@
   .ButtonSearch {
     width: 100%;
     border-radius: 8px;
+  }
+  .botonIcono {
+    width: 100%;            /* ocupa todo el ancho del td */
+    justify-content: center; 
   }
 }

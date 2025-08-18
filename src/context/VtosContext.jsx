@@ -4,7 +4,7 @@ import UseVtos from "../hoocks/UseVtos";
 const VtosContext = createContext();
 
 export const VtosProvider = ({ children }) => {
-  const vtosHook = UseVtos(); // ya tiene todo: vtos, obtenerVtos, eliminar, editar, etc.
+  const vtosHook = UseVtos(); 
 
   return (
     <VtosContext.Provider value={vtosHook}>

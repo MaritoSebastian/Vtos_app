@@ -34,13 +34,58 @@
   gap: 1rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
-/* Scanner */
-.BarcodeScanner {
+.scannerModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;  /* ancho pantalla */
+  height: 100vh; /* alto pantalla */
+  background-color: #000; /* fondo negro */
   display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 3000;
+  padding-top: 40px; /* espacio para el botón cerrar */
 }
+
+/* Aplicar a BarcodeScanner para que ocupe todo el espacio posible */
+.scannerModal > .barcode-scanner, 
+.scannerModal > div {
+  flex: 1 1 auto;
+  width: 100%;
+  height: calc(100% - 40px); /* para no tapar el botón cerrar */
+}
+
+
+
+.scannerContent {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.scannerCloseBtn {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  z-index: 3100;
+}
+
+
+
 
 /* Grupo de campos */
 .form_group {
@@ -234,7 +279,12 @@ button:disabled {
 @media (min-width: 1024px) {
   .scannerContainer{
     display: none;
+
   }
+    .scannerModal {
+    display: none;
+  }
+
 }
 /* Hace que el botón del escáner ocupe todo el ancho en mobile */
 @media (max-width: 1023px) {
