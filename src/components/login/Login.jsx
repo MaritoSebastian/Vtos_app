@@ -35,7 +35,12 @@ const Login = ({ onLoginSuccess }) => {
         };
         console.log("datos a enviar ", datos);
         const result = await verificar(datos.email, datos.clave);
+        console.log("Respuesta backend completa:", JSON.stringify(result, null, 2));
+
         console.log("resultado de la api", result);
+        console.log("Respuesta del backend cruda:", result);
+        console.log("Tipo de habilitado:", typeof result.habilitado);
+
         if (result && result.habilitado) {
           const datosCompletos = {
             email: result.email,
