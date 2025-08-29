@@ -9,6 +9,7 @@ import { FaBeer } from "react-icons/fa";
 
 const FormVtos = () => {
   const [mostrarScanner, setMostrarScaner] = useState(false);
+  const toggleScanner = () => setMostrarScaner((prev) => !prev);
   const { enviar, loading, error, success } = useCargarVtos();
 
   return (
@@ -48,7 +49,7 @@ const FormVtos = () => {
           <div className={styles.scannerContainer}>
             <button
               type="button"
-              onClick={() => setMostrarScaner(!mostrarScanner)}
+              onClick={toggleScanner}
               className={styles.scannerToggleBtn}
             >
               {mostrarScanner
@@ -56,38 +57,35 @@ const FormVtos = () => {
                 : "📷 Escanear código de barras"}
             </button>
             {mostrarScanner && (
-  <div className="scannerModal">
-    <button
-      className="scannerCloseBtn"
-      onClick={() => setMostrarScaner(false)}
-    >
-      ✖ Cerrar
-    </button>
-    <BarcodeScanner
-  onUpdate={(err, result) => {
-    if (result) {
-      const codigo = result.text;
-      setFieldValue("codigo_barras", codigo);
-      Swal.fire({
-        toast: true,
-        position: "top-end",
-        icon: "success",
-        title: `Código escaneado: ${codigo}`,
-        showConfirmButton: false,
-        timer: 2000,
-        background: "#002c5f",
-        color: "gold",
-      });
-      setMostrarScaner(false);
-    }
-  }}
-  style={{ width: "100%", height: "100%" }}
-/>
-
-  
-  </div>
-)}
-
+              <div className={styles.scannerModal}>
+                <button
+                  className={styles.scannerCloseBtn}
+                  onClick={() => setMostrarScaner(false)}
+                >
+                  ✖ Cerrar
+                </button>
+                <BarcodeScanner
+                  onUpdate={(err, result) => {
+                    if (result) {
+                      const codigo = result.text;
+                      setFieldValue("codigo_barras", codigo);
+                      Swal.fire({
+                        toast: true,
+                        position: "top-end",
+                        icon: "success",
+                        title: `Código escaneado: ${codigo}`,
+                        showConfirmButton: false,
+                        timer: 2000,
+                        background: "#002c5f",
+                        color: "gold",
+                      });
+                      setMostrarScaner(false);
+                    }
+                  }}
+                  className={styles.BarcodeScanner}
+                />
+              </div>
+            )}
           </div>
 
           <div className={`${styles.form_group} ${styles.codigo_barras}`}>
