@@ -49,15 +49,6 @@
   padding-top: 40px; /* espacio para el botón cerrar */
 }
 
-/* Aplicar a BarcodeScanner para que ocupe todo el espacio posible */
-.scannerModal > .barcode-scanner, 
-.scannerModal > div {
-  flex: 1 1 auto;
-  width: 100%;
-  height: calc(100% - 40px); /* para no tapar el botón cerrar */
-}
-
-
 
 .scannerContent {
   background: white;
